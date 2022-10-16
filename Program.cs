@@ -1,4 +1,4 @@
-﻿/*
+/*
 Задача 47. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
 
 m = 3, n = 4.
@@ -9,30 +9,31 @@ m = 3, n = 4.
 
 8 7,8 -7,1 9
 */
-int[,] generateTwodimensionalArray(int height, int width, int randomStart, int randomEnd)
+Console.Clear();
+double[,] generateTwodimensionalArray(int height, int width, int randomStart, int randomEnd)
 {
-    int[,] twodimensionalArray = new int[height, width];
+    double[,] twodimensionalArray = new double [height, width];
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            twodimensionalArray[i, j] = new Random().Next(randomStart, randomEnd + 1);
+            twodimensionalArray[i, j] = new Random().NextDouble() * 10;
         }
     }
     return twodimensionalArray;
 }
 
-void print2DArray(int[,] arrayToPrint)
+void print2DArray(double[,] arrayToPrint)
 {
     for (int i = 0; i < arrayToPrint.GetLength(0); i++)
     {
         for (int j = 0; j < arrayToPrint.GetLength(1); j++)
         {
-            Console.Write(arrayToPrint[i, j] + "\t");
+            Console.Write(Math.Round(arrayToPrint[i, j],1) + "\t");
         }
         Console.WriteLine();
     }
 }
 
-int[,] generateArray = generateTwodimensionalArray(5, 5, 1, 100);
+double[,] generateArray = generateTwodimensionalArray(3, 4, -10, 10);
 print2DArray(generateArray);
